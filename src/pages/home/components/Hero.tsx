@@ -9,8 +9,8 @@ export const Hero = () => {
                 Expand your knowledge with our vast collection of books
             </h1>
 
-            <div className="relative flex items-center border-2 p-1 gap-2 bg-primary-500 w-fit rounded-full mx-auto mt-10 shadow-xl">
-                <div className="absolute left-5">
+            <div className="relative flex items-center border-2 p-1 gap-2 bg-primary-500 w-fit rounded-full mx-auto mt-10">
+                <div className="absolute right-5 cursor-pointer">
                     <img
                         src={searchImg}
                         alt="search image"
