@@ -21,6 +21,10 @@
     font-weight: 500;
 }
 
+body {
+    background-color: #FDF5F2;
+}
+
 @layer utilities {
     .flex-center {
         @apply flex items-center justify-center;
@@ -31,6 +35,6 @@
     }
 
     .search-input {
-        @apply text-2xl p-3 rounded-tr-full rounded-br-full;
+        @apply text-2xl font-light pl-14 p-3 rounded-full w-[40vw] focus:outline-none;
     }
 }
