@@ -7,18 +7,7 @@ import {useEffect} from "react";
 import {searchBooks} from "./api/api.tsx";
 
 function App() {
-    const { setBooks } = useBookContext();
 
-    useEffect(() => {
-        const populateBooks = () => {
-            searchBooks("javascript")
-                .then((response) => {
-                    setBooks(response.data.items);
-                });
-        }
-
-        populateBooks();
-    }, []);
   return (
         <main>
             <Header />
