@@ -35,6 +35,6 @@ body {
     }
 
     .search-input {
-        @apply text-2xl font-light pl-14 p-3 rounded-full w-[40vw] focus:outline-none;
+        @apply text-xl font-light pr-14 pl-8 p-3 rounded-full w-[40vw] focus:outline-none shadow-xl;
     }
 }

@@ -2,6 +2,7 @@ import searchImg from "../../../assets/icons/search.png"
 import {useBookContext} from "../../../contexts/BookContext.tsx";
 
 export const Hero = () => {
+    const {query, setQuery} = useBookContext();
 
     return (
         <section className="w-full flex-col justify-center items-center py-10 mt-14">
@@ -9,11 +10,11 @@ export const Hero = () => {
                 Expand your knowledge with our vast collection of books
             </h1>
 
-            <div className="relative flex items-center border-2 p-1 gap-2 bg-primary-500 w-fit rounded-full mx-auto mt-10 shadow-xl">
-                <div className="absolute left-5">
+            <div className="relative flex items-center border-2 p-1 gap-2 bg-primary-500 w-fit rounded-full mx-auto mt-10">
+                <div className="absolute right-5 cursor-pointer">
                     <img
                         src={searchImg}
-                        alt="search image"
+                        alt="search"
                         width={30}
                         height={30}
                     />
@@ -21,6 +22,8 @@ export const Hero = () => {
 
                 <input
                     type="search"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
                     placeholder="search for books"
                     className="search-input"
                 />
