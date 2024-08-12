@@ -4,7 +4,11 @@ import {searchBooks} from "../api/api.tsx";
 interface BookContextType {
     books: any[];
     query: string;
+    selectedBook: any;
+    setSelectedBook: (book: any) => void;
     setBooks: (books: (prevBooks) => any[]) => void;
+    bookModalOpen: boolean;
+    setBookModalOpen: (open: boolean) => void;
     setQuery: (query: string) => void;
 }
 
@@ -13,6 +17,8 @@ export const BookContext = createContext<BookContextType | undefined>(undefined)
 export const BookContextProvider = ({children}) => {
     const [query, setQuery] = useState("drugs");
     const [books, setBooks] = useState([]);
+    const [selectedBook, setSelectedBook] = useState(null);
+    const [bookModalOpen, setBookModalOpen] = useState(false);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -30,7 +36,18 @@ export const BookContextProvider = ({children}) => {
     }, [query]);
 
     return (
-        <BookContext.Provider value={{books, query, setQuery, setBooks, loading, setLoading}}>
+        <BookContext.Provider value={{
+            books,
+            query,
+            setQuery,
+            setBooks,
+            selectedBook,
+            setSelectedBook,
+            bookModalOpen,
+            setBookModalOpen,
+            loading,
+            setLoading
+        }}>
             {children}
         </BookContext.Provider>
     )

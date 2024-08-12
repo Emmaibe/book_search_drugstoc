@@ -2,9 +2,11 @@ import {BookCard} from "../../../components/BookCard.tsx";
 import {useBookContext} from "../../../contexts/BookContext.tsx";
 import {useEffect, useRef, useState} from "react";
 import {searchBooks} from "../../../api/api.tsx";
+import {RotateSpinner} from "react-spinners-kit";
+import {useInfiniteScroll} from "../../../hooks/useInfinteScroll.tsx";
 
 export const BookList = () => {
-    const { query, books, setBooks } = useBookContext();
+    const { query, books, setBooks, setSelectedBook, setBookModalOpen } = useBookContext();
 
     const [ page, setPage] = useState(0);
 
@@ -12,13 +14,15 @@ export const BookList = () => {
 
     const observerRef = useRef(null);
 
+    useInfiniteScroll(observerRef, loading, setPage);
+
     useEffect(() => {
         setLoading(true);
         const handleSetBooksInfiniteScroll = async () => {
             const newBooks = await searchBooks(query, page);
 
             if (newBooks?.data?.items) {
-                setBooks(prevBooks => [...prevBooks, ...newBooks.data.items]);
+                setBooks(books ? prevBooks => [...prevBooks, ...newBooks.data.items] : newBooks.data.items);
             }
         }
 
@@ -26,47 +30,29 @@ export const BookList = () => {
 
     }, [page]);
 
-    useEffect(() => {
-        const options = {
-            root: null,
-            rootMargin: "40px",
-            threshold: 1.0
-        };
-
-        const observer = new IntersectionObserver(([entries]) => {
-            if (entries.isIntersecting && !loading) {
-                setPage(prevState => prevState + 1);
-            }
-        }, options);
-
-        const currentObserverRef = observerRef.current;
-
-        if (currentObserverRef) {
-            observer.observe(currentObserverRef);
-        }
-
-        return () => {
-            if (currentObserverRef) {
-                observer.unobserve(currentObserverRef);
-            }
-        }
-
-    }, [observerRef, loading]);
-
     return (
         <>
             <section className="p-8 flex items-center gap-3 justify-center flex-wrap">
                 {
                     books?.map(
                         (book, index) => (
-                            <BookCard key={book} book={book} />
+                            <section key={index} onClick={() => {
+                                setSelectedBook(book);
+                                setBookModalOpen(true);
+                            }}>
+                                <BookCard book={book} />
+                            </section>
                         )
                     )
                 }
             </section>
 
-            {loading &&
-                <p className="text-center text-primary-500 text-xl italic font-medium pb-5">Loading...</p>
+            <div className="w-fit pb-7 mx-auto">
+                <RotateSpinner size={40} color="#C6A7A5" loading={loading && query} />
+            </div>
+
+            {
+                !query && <div className="w-full text-center text-primary-500 font-bold h-dvh">Nothing to display</div>
             }
 
             <div ref={observerRef} />
