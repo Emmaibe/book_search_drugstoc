@@ -2,15 +2,8 @@ import * as React from "react";
 
 export const Header: React.FC = () => {
     return (
-        <header className="flex-between p-5">
-            <div className="font-extrabold text-xl">BookSTOC.</div>
-            <nav>
-                <ul className="flex-between gap-5">
-                    <li>About</li>
-                    <li>Books</li>
-                    <li>Contact</li>
-                </ul>
-            </nav>
+        <header className="fixed top-0 flex-between p-4 w-full bg-primary-100 bg-opacity-80 backdrop-filter backdrop-blur-md">
+            <div className="text-3xl matemasie font-medium">BookSTOC.</div>
         </header>
     );
 };
