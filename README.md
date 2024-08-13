@@ -1,50 +1,52 @@
-# React + TypeScript + Vite
+# BookStoc
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+BookStoc is a React application that uses the Google Books 
+API to search for and display book information.
 
+## Features
 Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Search for books by title, author, or ISBN.
+- View detailed information about a book, including its title, author, description, and more.
+- Responsive design for mobile and desktop.
 
-## Expanding the ESLint configuration
+## Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Before you begin, ensure you have the following installed on your local machine:
 
-- Configure the top-level `parserOptions` property like this:
+- [Node.js](https://nodejs.org/en/) (version 14 or later)
+- [npm](https://www.npmjs.com/) (version 7 or later) or [yarn](https://yarnpkg.com/) (version 1.22 or later)
+- [Git](https://git-scm.com/)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/Emmaibe/book_search_drugstoc.git && cd book_search_drugstoc
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+### 2. Install dependencies
+```bash
+# Using npm or yarn
+npm install || yarn install
 ```
+### 3. Set up environment variables
+BookStoc requires a Google API key to access the Google Books API. Follow these steps to set up your environment variables:
+
+1. Create a new project in the [Google Cloud Console](https://console.cloud.google.com/). 
+2. Enable the Google Books API for your project. 
+3. Create an API key in the "Credentials" section. 
+4. In the root of the project, create a `.env` file and add your API key:
+
+```plaintext
+VITE_API_KEY=your-google-books-api-key
+```
+Replace `your-google-books-api-key` with the actual API key you generated in the Google Cloud Console.
+
+### 4. Start the development server
+```bash
+# Using npm or yarn
+npm run dev || yarn dev
+```
+
+The development server will start at `http://localhost:5173`. or any other port number that is available.

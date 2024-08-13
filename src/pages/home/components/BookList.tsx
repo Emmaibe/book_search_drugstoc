@@ -24,7 +24,7 @@ export const BookList = () => {
     useEffect(() => {
         setLoading(true); // Start loading indicator
 
-        const handleSetBooksInfiniteScroll = async () => {
+        const handleSetBooks = async () => {
             const newBooks = await searchBooks(query, page);
 
             if (newBooks?.data?.items) {
@@ -34,7 +34,7 @@ export const BookList = () => {
         };
 
         // Fetch new books and stop loading indicator when done
-        handleSetBooksInfiniteScroll().finally(() => setLoading(false));
+        handleSetBooks().finally(() => setLoading(false));
 
     }, [page]);
 

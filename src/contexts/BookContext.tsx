@@ -27,9 +27,6 @@ export const BookContextProvider = ({ children }) => {
     // State to control the visibility of the book details modal
     const [bookModalOpen, setBookModalOpen] = useState(false);
 
-    // State to track loading status
-    const [loading, setLoading] = useState(true);
-
     // Effect to fetch books based on the current query
     useEffect(() => {
         const populateBooks = () => {
@@ -55,8 +52,6 @@ export const BookContextProvider = ({ children }) => {
             setSelectedBook,
             bookModalOpen,
             setBookModalOpen,
-            loading,
-            setLoading
         }}>
             {children}
         </BookContext.Provider>
