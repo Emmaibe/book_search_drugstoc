@@ -1,16 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Matemasie&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@font-face {
-    font-family: "monument";
-    src: url("assets/fonts/MonumentExtended/MonumentExtended-Regular.otf");
-}
-
-@font-face {
-    font-family: "monument bold";
-    src: url("assets/fonts/MonumentExtended/MonumentExtended-Ultrabold.otf");
-}
 
 * {
     margin: 0;
@@ -25,6 +17,10 @@ body {
     background-color: #FDF5F2;
 }
 
+.matemasie {
+    font-family: "Matemasie", sans-serif;
+}
+
 @layer utilities {
     .flex-center {
         @apply flex items-center justify-center;
@@ -35,6 +31,6 @@ body {
     }
 
     .search-input {
-        @apply text-xl font-light pr-14 pl-8 p-3 rounded-full w-[40vw] focus:outline-none shadow-xl;
+        @apply text-xl font-light pr-14 pl-8 p-3 rounded-full w-full focus:outline-none shadow-xl max-sm:text-sm max-sm:pr-10 max-sm:pl-6 max-sm:p-2;
     }
 }
