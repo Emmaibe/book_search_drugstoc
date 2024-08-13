@@ -1,5 +1,11 @@
 import { useEffect } from "react";
 
+/**
+ * A custom React hook that locks or unlocks body scroll based on the `isLocked` parameter.
+ *
+ * @param isLocked - A boolean indicating whether to lock (`true`) or unlock (`false`) the body scroll.
+ */
+
 export const useBodyScrollLock = (isLocked: boolean) => {
     useEffect(() => {
         if (isLocked) {
