@@ -57,10 +57,10 @@ export const BookDetailsModal = () => {
 
                 {/* Modal content scrollable area */}
                 <div className="overflow-y-scroll max-h-[630px]">
-                    <div className="flex items-center gap-5">
+                    <div className="flex items-center gap-5 max-md:flex-col max-md:items-start">
 
                         {/* Display book cover */}
-                        <div className="w-[200px] h-[250px] overflow-hidden rounded-lg border-4 border-primary-100 shadow-xl">
+                        <div className="min-w-[200px] min-h-[250px] overflow-hidden rounded-lg border-4 border-primary-100 shadow-xl max-md:mx-auto">
                             <img
                                 src={selectedBook?.volumeInfo?.imageLinks?.thumbnail}
                                 alt="book cover"
@@ -89,7 +89,7 @@ export const BookDetailsModal = () => {
 
                                 {/* Display list of authors */}
                                 {authors?.map((author: string) => (
-                                    <p key={author} className="max-w-[220px] truncate">{author}</p>
+                                    <p key={author} className="">{author}</p>
                                 ))}
                             </div>
                         </section>
@@ -112,7 +112,7 @@ export const BookDetailsModal = () => {
                             Publication Information
                         </h3>
 
-                        <section className="flex-between">
+                        <section className="flex-between gap-3 max-sm:flex-col max-sm:items-start">
 
                             {/* Display publisher information */}
                             <div className="text-black text-md">
