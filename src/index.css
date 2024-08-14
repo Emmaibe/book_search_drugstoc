@@ -9,12 +9,12 @@
     padding: 0;
     box-sizing: border-box;
     font-size: inherit;
-    font-family: "Poppins", sans-serif;
+    /*font-family: "Poppins", sans-serif;*/
     font-weight: 500;
 }
 
 body {
-    background-color: #FDF5F2;
+    background-color: #000000;
 }
 
 .matemasie {
@@ -31,6 +31,6 @@ body {
     }
 
     .search-input {
-        @apply text-xl font-light pr-14 pl-8 p-3 rounded-full w-full focus:outline-none shadow-xl max-sm:text-sm max-sm:pr-10 max-sm:pl-6 max-sm:p-2;
+        @apply text-xl bg-primary-500 text-primary-50 font-light pr-14 pl-8 p-3 rounded-full w-full focus:outline-none shadow-xl max-sm:text-sm max-sm:pr-10 max-sm:pl-6 max-sm:p-2;
     }
 }

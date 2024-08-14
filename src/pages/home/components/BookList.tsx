@@ -55,11 +55,11 @@ export const BookList = () => {
             </section>
 
             <div className="w-fit pb-7 mx-auto">
-                <RotateSpinner size={40} color="#C6A7A5" loading={loading && query} /> {/* Loading spinner */}
+                <RotateSpinner size={40} color="#bfbfbf" loading={loading && query} /> {/* Loading spinner */}
             </div>
 
             {!query && (
-                <div className="w-full text-center text-primary-500 font-bold h-dvh">
+                <div className="w-full text-center text-primary font-bold h-dvh">
                     Nothing to display
                 </div>
             )}

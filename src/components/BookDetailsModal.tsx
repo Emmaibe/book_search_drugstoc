@@ -1,3 +1,4 @@
+import React from 'react';
 import { useBookContext } from "../contexts/BookContext.tsx";
 import { useBodyScrollLock } from "../hooks/useBodyScrollLock.tsx";
 import useFormatDate from "../hooks/useFormatDate.tsx";
@@ -34,7 +35,7 @@ export const BookDetailsModal = () => {
 
                 {/* Close button */}
                 <div className="flex justify-end">
-                    <div
+                    <button
                         onClick={() => setBookModalOpen(false)}
                         className="cursor-pointer"
                     >
@@ -52,7 +53,7 @@ export const BookDetailsModal = () => {
                                 d="M6 18L18 6M6 6l12 12"
                             />
                         </svg>
-                    </div>
+                    </button>
                 </div>
 
                 {/* Modal content scrollable area */}
@@ -72,7 +73,7 @@ export const BookDetailsModal = () => {
 
                         {/* Display book title and authors */}
                         <section>
-                            <div className="text-black text-md">
+                            <div className="text-primary-50 text-md">
                                 <h3 className="text-lg font-bold text-primary-100">
                                     Book Title:
                                 </h3>
@@ -82,7 +83,7 @@ export const BookDetailsModal = () => {
                                 </p>
                             </div>
 
-                            <div className="text-black text-md mt-2">
+                            <div className="text-primary-50 text-md mt-2">
                                 <h3 className="text-lg font-bold text-primary-100">
                                     Author{authors?.length > 1 ? 's' : '' }:
                                 </h3>
@@ -96,7 +97,7 @@ export const BookDetailsModal = () => {
                     </div>
 
                     {/* Display book description */}
-                    <div className="text-black mt-3">
+                    <div className="text-primary-50 mt-3">
                         <h3 className="text-xl font-bold mb-2 text-primary-100">
                             Book Description:
                         </h3>
@@ -115,7 +116,7 @@ export const BookDetailsModal = () => {
                         <section className="flex-between gap-3 max-sm:flex-col max-sm:items-start">
 
                             {/* Display publisher information */}
-                            <div className="text-black text-md">
+                            <div className="text-primary-50 text-md">
                                 <h3 className="text-md font-bold text-primary-100">
                                     Publisher:
                                 </h3>
@@ -126,7 +127,7 @@ export const BookDetailsModal = () => {
                             </div>
 
                             {/* Display publication date */}
-                            <div className="text-black text-md">
+                            <div className="text-primary-50 text-md">
                                 <h3 className="text-md font-bold text-primary-100">
                                     Published Date:
                                 </h3>
