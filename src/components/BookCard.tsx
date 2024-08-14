@@ -1,3 +1,4 @@
+import React from "react";
 import useFormatDate from "../hooks/useFormatDate.tsx";
 
 /**
@@ -33,24 +34,24 @@ export const BookCard = ({ book }: any) => {
                 <div className="flex flex-col justify-between items-center h-full py-2">
 
                     {/* Display book title */}
-                    <h1 className="text-center text-primary-100 font-bold text-md line-clamp-2">
+                    <h1 className="text-center text-primary-50 font-bold text-md line-clamp-2">
                         {book?.volumeInfo?.title}
                     </h1>
 
                     <div className="text-center text-sm">
 
                         {/* Conditionally display "Author" or "Authors" based on the length of the authors array */}
-                        <p>Author{authors?.length > 1 ? 's' : ''}: </p>
+                        <p className="text-primary-100">Author{authors?.length > 1 ? 's' : ''}: </p>
                         
                         <div className="line-clamp-2 flex items-center text-primary-100">
 
                             {/* Display the first author */}
-                            <p className="text-center text-primary-100 max-w-[220px] truncate">
+                            <p className="text-center text-primary-50 max-w-[220px] truncate">
                                 {authors?.[0]}
                             </p>
 
                             {/* Display additional author count if applicable */}
-                            <p className="text-[12px]">
+                            <p className="text-[12px] text-primary-50">
                                 {authors?.length > 1 ? `(+${authors?.length - 1})` : '' }
                             </p>
                         </div>
@@ -59,8 +60,8 @@ export const BookCard = ({ book }: any) => {
                 <div className="border-t border-primary-100 pt-3">
                     
                     {/* Format and display publish date */}
-                    <p className="text-center text-[12px]">
-                        Publish Date: {useFormatDate(book?.volumeInfo?.publishedDate)}
+                    <p role="publishedDate" className="text-center text-primary-50 text-[12px]">
+                        <span className="text-primary-100">Publish Date: </span>{useFormatDate(book?.volumeInfo?.publishedDate)}
                     </p>
                 </div>
             </div>

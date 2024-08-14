@@ -1,4 +1,4 @@
-import searchImg from "../../../assets/icons/search.png";
+import searchImg from "../../../assets/icons/search.svg";
 import { useBookContext } from "../../../contexts/BookContext.tsx";
 
 /**
@@ -10,9 +10,9 @@ export const Hero = () => {
     const { query, setQuery } = useBookContext(); // Access the query state and setter function from context
 
     return (
-        <section className="w-full flex-col justify-center items-center py-10 px-2.5 mt-[80px]">
+        <section className="w-full flex-col justify-center items-center pb-10 px-2.5 pt-[120px]">
             {/* Main title for the hero section */}
-            <h1 className="max-w-[600px] mx-auto font-bold text-2xl md:text-5xl text-center">
+            <h1 className="max-w-[600px] mx-auto font-bold text-2xl md:text-5xl text-center text-primary-50">
                 Expand your knowledge with our vast collection of books
             </h1>
 
